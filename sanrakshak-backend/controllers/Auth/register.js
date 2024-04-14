@@ -1,0 +1,36 @@
+import User from "../../models/user.js"
+
+import bcrypt from 'bcrypt';
+
+const register = async (req, res, next) => {
+  console.log(req.body)
+  const { name, email, password, role, city } = req.body;
+
+  try {
+    const existingUser = await User.findOne({ email: email });
+
+    if (existingUser) {
+      return res.status(400).json({ success: false, message: 'Email already registered.' });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User(
+      {
+        name: name,
+        email: email,
+        password: hashedPassword,
+        role: role,
+        city: city
+      }
+    );
+    const user = await newUser.save();
+    var redirectParam = req?.query?.redirect;
+    const redirectURL = redirectParam;
+    return res.status(201).json({ success: true, message: 'Registration successful.', user, redirectURL });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: 'Internal server error.', error });
+  }
+}
+
+export default register;
+

@@ -1,0 +1,352 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body:focus {
+  outline: none !important;
+}
+
+::-webkit-scrollbar {
+
+  width: 5px;
+  height: 5px;
+  /* Remove scrollbar space */
+
+  border-radius: 5rem;
+
+  /* Optional: just make scrollbar invisible */
+}
+
+::-webkit-scrollbar-track {
+  background: #626262;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b6b8e2;
+}
+
+.no-select {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* night mode switch code  */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+  scale: 0.7;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73c0fc;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 2;
+  background-color: #e8e8e8;
+  transition: 0.4s;
+}
+
+.sun svg {
+  position: absolute;
+  top: 6px;
+  left: 36px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.moon svg {
+  fill: #73c0fc;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+/* .switch:hover */
+.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .switch:hover */
+.moon svg {
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.input:checked+.slider {
+  background-color: #183153;
+}
+
+.input:focus+.slider {
+  box-shadow: 0 0 1px #183153;
+}
+
+.input:checked+.slider:before {
+  transform: translateX(30px);
+}
+
+/* font code  */
+@font-face {
+  font-family: nunito;
+  src: url(../public/Fonts/nunito_sans/NunitoSans-Regular.ttf);
+  font-weight: 400;
+}
+
+/* @font-face {
+  font-family: dm_sans;
+  src: url(../public/Fonts/dm_sans/DMSans-Regular.ttf);
+  font-weight: 400;
+} */
+
+@font-face {
+  font-family: lora;
+  src: url(../public/Fonts/lora/Lora-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(../public/Fonts/nunito_sans/NunitoSans-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: roboto;
+  src: url(../public/Fonts/roboto/Roboto-Medium.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: dm_sans;
+  src: url(../public/Fonts/dm_sans/DMSans-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(../public/Fonts/nunito_sans/NunitoSans-Bold.ttf);
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: lily;
+  src: url(../public/Fonts/lilly/LilyScriptOne-Regular.ttf);
+  font-weight: 400;
+}
+
+/* use type code  */
+.user-not-selected {
+  box-shadow: 0px 0px 58.4px 0px rgba(0, 0, 0, 0.13);
+}
+
+
+
+.user-selected {
+  background: #1e3067;
+  box-shadow: 0px 0px 65px 2px #6c71ff67;
+}
+
+.dark-user-selected {
+  background: #101935;
+  box-shadow: 0px 0px 65px 2px #6c71ff51;
+}
+
+.user-elipse-gradient {
+  background-color: rgb(189, 201, 255);
+  filter: drop-shadow(0px 0px 49px rgba(183, 185, 255, 0.979));
+}
+
+.dark-user-elipse-gradient {
+  background-color: rgba(108, 114, 255, 0.39);
+  filter: drop-shadow(0px 0px 49px rgba(108, 114, 255, 0.32));
+}
+
+.register-fir-bg {
+  border-radius: 12px;
+  border: 1px solid var(--primary-btn, #6C72FF);
+  background: var(--Secondary-bg, #101935);
+  box-shadow: 0px 0px 250px 50px #6C72FF;
+
+}
+
+.stage-1 {
+  border-radius: 3px;
+  background: rgba(140, 140, 154, 0.12);
+  box-shadow: 0px 0px 13.6px 0px rgba(52, 67, 198, 0.46) inset;
+}
+
+.stage-2 {
+  border-radius: 3px;
+  background: rgba(187, 128, 12, 0.16);
+  box-shadow: 0px 0px 8.7px 2px rgba(187, 128, 12, 0.29) inset;
+}
+
+.stage-3 {
+  border-radius: 3px;
+  background: rgba(200, 33, 53, 0.24);
+  box-shadow: 0px 0px 9.4px 2px rgba(205, 29, 50, 0.76) inset;
+}
+
+.stage-4 {
+  border-radius: 3px;
+  background: rgba(40, 86, 48, 0.28);
+  box-shadow: 0px 0px 9.4px 2px rgba(106, 196, 120, 0.43) inset;
+}
+
+.reply-bg {
+  border-radius: 3px;
+  background: rgba(140, 140, 154, 0.12);
+  box-shadow: 0px 0px 13.6px 0px rgba(52, 67, 198, 0.46) inset;
+}
+
+.register-fir-button {
+  border-radius: 5px;
+  border: 1px solid var(--primary-btn, #6C72FF);
+  background: var(--primary-btn, #6C72FF);
+  box-shadow: 0px 0px 77.8px 17px rgba(108, 114, 255, 0.41);
+}
+
+.fir-edit-bg {
+  border-radius: 3px;
+  background: rgba(140, 140, 154, 0.12);
+  box-shadow: 0px 0px 13.6px 0px rgba(52, 67, 198, 0.46) inset;
+}
+
+.fir-delete-bg {
+  border-radius: 3px;
+  background: rgba(205, 29, 50, 0.25);
+  box-shadow: 0px 0px 5.4px 0px rgba(205, 29, 50, 0.76) inset;
+}
+
+.task-delete-bg {
+  background: rgba(205, 29, 50, 0.25);
+  box-shadow: 0px 0px 5.4px 0px rgba(205, 29, 50, 0.76) inset;
+}
+
+
+.available-bg {
+  border-radius: 3px;
+  background: rgba(40, 86, 48, 0.28);
+  box-shadow: 0px 0px 9.4px 2px rgba(106, 196, 120, 0.43) inset;
+}
+
+.register-fir-bg {
+  border-radius: 12px;
+  border: 1px solid var(--primary-btn, #6C72FF);
+  background: var(--Secondary-bg, #101935);
+  box-shadow: 0px 0px 250px 50px #6C72FF;
+
+}
+
+.stage-no-select {
+  border-radius: 3px;
+  background: rgba(149, 152, 255, 0.081);
+  box-shadow: 0px 0px 4.6px 0px rgba(139, 149, 233, 0.248) inset;
+}
+
+.stage-select {
+  border-radius: 3px;
+  background: rgba(76, 56, 16, 0.80);
+}
+
+.post-social-button {
+  border-radius: 50%;
+  border: 1px solid var(--primary-btn, #6C72FF);
+  background: var(--primary-btn, #6C72FF);
+  box-shadow: 0px 0px 77.8px 12px rgba(108, 114, 255, 0.41);
+}
+
+/* card scroll Analyctics page */
+.card-scroll {
+  overflow-y: auto;
+
+}
+
+.card-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.card-scroll::-webkit-scrollbar-track {
+  background-color: #343541;
+}
+
+.card-scroll::-webkit-scrollbar-thumb {
+  background-color: #e4e4e4;
+
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
